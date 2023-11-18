@@ -40,7 +40,7 @@
         >Edit this Listing</a
       >
       <form method="post" action="/listings/<%= listing._id %>?_method=Delete">
-        <button class="btn btn-dark">Delete</button>
+        <button class="btn btn-dark">Delete This Listing</button>
       </form>
     </div>
     <% } else if (!currUser){%>
@@ -49,10 +49,10 @@
         href="/listings/<%=listing._id%>/Edit"
         class="btn btn-dark offset-3 add-btn"
         style="margin-right: 2rem"
-        >Edit</a
+        >Edit this Listing</a
       >
       <form method="post" action="/listings/<%= listing._id %>?_method=Delete">
-        <button class="btn btn-dark">Delete</button>
+        <button class="btn btn-dark">Delete This Listing</button>
       </form>
     </div>
     <% } %>
