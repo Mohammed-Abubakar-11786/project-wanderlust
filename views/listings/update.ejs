@@ -1,0 +1,116 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <div class="row mt-3">
+    <div class="col-8 offset-2">
+      <h3>Edit Your Listing</h3>
+      <form
+        method="post"
+        action="/listings/<%=listing._id%>?_method=PUT"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="listing[title]"
+            placeholder="Add a Catchy Title"
+            value="<%= listing.title %>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Title required</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="catagory" class="form-label">Category</label>
+          <select id="category" name="listing[category]" class="form-control">
+            <option value="" disabled>Select a Category</option>
+            <option value="Trending" <%= listing.category === 'Trending' ? 'selected' : '' %>>Trending</option>
+            <option value="Bed Rooms" <%= listing.category === 'Bed Rooms' ? 'selected' : '' %>>Bed Rooms</option>
+            <option value="Pools" <%= listing.category === 'Pools' ? 'selected' : '' %>>Pools</option>
+            <option value="Boats" <%= listing.category === 'Boats' ? 'selected' : '' %>>Boats</option>
+            <option value="Arctic" <%= listing.category === 'Arctic' ? 'selected' : '' %>>Arctic</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            type="text"
+            class="form-control"
+            name="listing[description]"
+            placeholder="Enter description"
+            required
+          >
+<%= listing.description %></textarea
+          >
+          <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+
+        <div class="mb-3">
+          <div class="card listing-card col-6 mb-3">
+            <label>Your Current Image</label>
+            <img
+              src="<%= alterdUrl %>"
+              class="card-img-top show-img mt-2"
+              alt="/listing-image"
+            />
+          </div>
+
+          <label for="image" class="form-label">Upload New Image</label>
+          <input
+            type="file"
+            class="form-control"
+            name="listing[image]"
+            placeholder="Enter URL/link"
+          />
+          <div class="invalid-feedback">Please enter valid link</div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              name="listing[price]"
+              placeholder="1200"
+              value="<%= listing.price %>"
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              type="text"
+              class="form-control"
+              name="listing[country]"
+              placeholder="India"
+              value="<%= listing.country %>"
+              required
+            />
+            <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            name="listing[location]"
+            placeholder="Jaipur, Rajastan"
+            value="<%= listing.location %>"
+            required
+          />
+          <div class="invalid-feedback">Location should be valid Please</div>
+        </div>
+
+        <button class="btn btn-dark add-btn mt-3">Edit</button> <br /><br />
+      </form>
+    </div>
+  </div>
+</body>
