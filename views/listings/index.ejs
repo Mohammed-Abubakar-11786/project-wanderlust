@@ -34,6 +34,17 @@
   .tax-price {
     display: none;
   }
+  @media (max-width: 450px) {
+    .toggle-tax {
+      display: none;
+    }
+  }
+
+  @media (max-width: 365px) {
+    .filters {
+      display: none;
+    }
+  }
 </style>
 <body>
   <div class="filters">
@@ -95,7 +106,7 @@
       </div>
     </div>
   </div>
-  <div class="row mt-2 row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+  <div class="row mt-2 row-cols-lg-3 row-cols-md-2 row-cols-sm-3 row-cols-sm-1">
     <% for(let listing of allListings){%>
     <a href="/listings/<%= listing._id %>" class="listing-link">
       <div class="card listing-card">
