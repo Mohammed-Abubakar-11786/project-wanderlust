@@ -9,6 +9,7 @@ module.exports.isLoggedIn = (req, res, next) => {
     req.flash("error", "Login First to perform the opration");
     return res.redirect("/login");
   }
+
   next();
 };
 

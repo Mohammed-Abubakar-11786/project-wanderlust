@@ -159,11 +159,13 @@
       <% } %>
     </div>
 
+    <% if(listing.geometry.type && listing.geometry.coordinates) { %>
     <div class="col-8 offset-3">
       <hr />
       <h4 class="form-label">Where you'll be</h4>
       <div id="map"></div>
     </div>
+    <% } %>
   </div>
   <script src="/js/map.js"></script>
 </body>
